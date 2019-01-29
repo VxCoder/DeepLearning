@@ -1,0 +1,9 @@
+.settings/
+__pycache__/
+dogs-vs-cats/
+dogs-vs-cats.zip
+.project
+.pydevproject
+*.h5
+
+
