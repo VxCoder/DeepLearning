@@ -1,6 +1,0 @@
-keras
-tensorflow
-matplotlib
-pygame
-numpy
-scipy
