@@ -1,13 +1,14 @@
 import numpy as np
+from matplotlib import pyplot as plt
 
 def gen_test_data():
     """
     生成数据
     """
     x = np.random.uniform(-10.0, 10., 100)
-    eps = np.random.normal(0., 0.1, 100)
+    eps = np.random.normal(0., 2, 100)
     y = 1.477 * x + 0.089 + eps
-    return np.array(list(zip(x, y)))
+    return x, y
 
 def mse(b, w, points):
     """
@@ -43,9 +44,13 @@ def gradient_descent(points, starting_b, starting_w, lr, num_iterations):
     return b, w
 
 def main():
-    points = gen_test_data()
-    print(gradient_descent(points, 0., 0., 0.01, 1000))
+    x, y = gen_test_data()
+    points = np.array(list(zip(x, y)))
+    b, w = gradient_descent(points, 0., 0., 0.01, 1000)
 
+    plt.scatter(x, y, c="r")
+    plt.plot(x, w*x + b, "b", lw=2)
+    plt.show()
 
 if __name__ == "__main__":
     main()
