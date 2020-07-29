@@ -6,7 +6,7 @@ def gen_test_data():
     生成数据
     """
     x = np.random.uniform(-10.0, 10., 100)
-    eps = np.random.normal(0., 2, 100)
+    eps = np.random.normal(0., 3, 100)
     y = 1.477 * x + 0.089 + eps
     return x, y
 
@@ -30,6 +30,7 @@ def step_gradient(b_current, w_current, points, lr):
     new_b = b_current - (lr * b_gradient)
     new_w = w_current - (lr * w_gradient)
     return new_b, new_w
+
 
 def gradient_descent(points, starting_b, starting_w, lr, num_iterations):
     """
